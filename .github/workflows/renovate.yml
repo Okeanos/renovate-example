@@ -39,5 +39,4 @@ jobs:
           GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RENOVATE_REPOSITORIES: "Okeanos/renovate-example"
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
-          RENOVATE_CUSTOM_ENV_VARIABLES: '{ "GONOPROXY": "*.nikolasgrottendieck.com","GONOSUMDB": "*.nikolasgrottendieck.com","GOPRIVATE": "*.nikolasgrottendieck.com","GIT_CONFIG_KEY_0": "url.https://OAuth:${{ secrets.AZURE_GO_REPOS }}@dev.azure.com/okeanos-azure/renovate%20me/_git/.insteadOf", "GIT_CONFIG_VALUE_0": "https://go.nikolasgrottendieck.com/", "GIT_CONFIG_COUNT": 1 }'
-          AZURE_GO_REPOS: ${{ secrets.AZURE_GO_REPOS }}
+          RENOVATE_CUSTOM_ENV_VARIABLES: '{ "GONOPROXY": "*.nikolasgrottendieck.com","GONOSUMDB": "*.nikolasgrottendieck.com","GOPRIVATE": "*.nikolasgrottendieck.com","GIT_CONFIG_KEY_0": "url.https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/_git/.insteadOf", "GIT_CONFIG_VALUE_0": "https://go.nikolasgrottendieck.com/", "GIT_CONFIG_COUNT": 1 }'
