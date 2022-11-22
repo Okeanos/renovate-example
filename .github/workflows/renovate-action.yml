@@ -36,6 +36,7 @@ jobs:
         uses: renovatebot/github-action@v32.238.4
         with:
           token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
           LOG_LEVEL: debug
           GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RENOVATE_REPOSITORIES: "Okeanos/renovate-example"
