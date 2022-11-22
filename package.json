@@ -1,0 +1,14 @@
+{
+	"name": "renvoate-example",
+	"version": "1.0.0",
+	"description": "This shows how to use Renovate with Golang.",
+	"author": {
+		"name": "Nikolas Grottendieck",
+		"email": "git@nikolasgrottendieck.com",
+		"url": "https://nikolasgrottendieck.com"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"renovate": "34.30.2"
+	}
+}
