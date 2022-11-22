@@ -1,0 +1,43 @@
+name: Renovate-Action
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Allow one concurrent deployment
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  renovate:
+    name: Renovate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.19.x
+      - name: 'Install Tools'
+        run: |
+          npm update -g npm
+          npm ci
+      - name: Renovate
+        uses: renovatebot/github-action@v32.238.4
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          LOG_LEVEL: debug
+          GITHUB_COM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RENOVATE_REPOSITORIES: "Okeanos/renovate-example"
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_CUSTOM_ENV_VARIABLES: '{ "GONOPROXY": "*.nikolasgrottendieck.com","GONOSUMDB": "*.nikolasgrottendieck.com","GOPRIVATE": "*.nikolasgrottendieck.com","GIT_CONFIG_KEY_0": "url.https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/_git/.insteadOf", "GIT_CONFIG_VALUE_0": "https://go.nikolasgrottendieck.com/", "GIT_CONFIG_COUNT": 1 }'
