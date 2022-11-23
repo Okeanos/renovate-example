@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go.nikolasgrottendieck.com/go-example/export"
+	"go.nikolasgrottendieck.com/go-example.git/export"
 )
 
 func main() {
