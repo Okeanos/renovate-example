@@ -42,6 +42,7 @@ jobs:
           --arg git_value 'https://go.nikolasgrottendieck.com/' \
           '{GONOPROXY: $go_url, GONOSUMDB: $go_url, GOPRIVATE: $go_url, GIT_CONFIG_KEY_0: $git_key, GIT_CONFIG_VALUE_0: $git_value, GIT_CONFIG_COUNT: 1}'
           )
+          echo "${environment}"
           echo "renovate_environment=${environment}" >> $GITHUB_OUTPUT
       - name: Renovate
         run: npx renovate
