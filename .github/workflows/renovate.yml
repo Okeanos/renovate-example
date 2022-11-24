@@ -40,13 +40,13 @@ jobs:
           --arg go_url '*.nikolasgrottendieck.com' \
           --arg git_key 'url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/_git/".insteadOf' \
           --arg git_value 'https://go.nikolasgrottendieck.com/' \
-          '{\
-            GONOPROXY: $go_url, \
-            GONOSUMDB: $go_url, \
-            GOPRIVATE: $go_url, \
-            GIT_CONFIG_KEY_0: $git_key, \
-            GIT_CONFIG_VALUE_0: $git_value, \
-            GIT_CONFIG_COUNT: 1\
+          '{
+            GONOPROXY: $go_url,
+            GONOSUMDB: $go_url,
+            GOPRIVATE: $go_url,
+            GIT_CONFIG_KEY_0: $git_key,
+            GIT_CONFIG_VALUE_0: $git_value,
+            GIT_CONFIG_COUNT: 1
           }')
           echo "renovate_environment='${environment}'" >> $GITHUB_OUTPUT
       - name: Renovate
