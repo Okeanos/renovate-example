@@ -36,10 +36,11 @@ require (
 )
 ```
 
-Why is this necessary? Because the original source URL is not compatible with the Go Mod/Go Get mechanism:
+Why is this necessary? Because the original source URL is not compatible[^1] with the Go Mod/Go Get mechanism:
 
 `https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/` contains a whitespace character
-and will fail to resolve. Using the `insteadOf` rewrite makes it possible to consume the module.
+(that has to be converted via URL encoding) and will fail to resolve. Using the `insteadOf` rewrite makes it possible to
+consume the module.
 
 Beyond that it may be helpful to set the following Go environment variables:
 
@@ -51,3 +52,5 @@ go env -w GOPRIVATE='*.nikolasgrottendieck.com'
 
 These settings have to be done before Go interacts with the `go.mod` for dependency resolution so that the underlying
 Git process can handle the actual rewrite as expected. The same applies for Renovate as a result.
+
+[^1] See: [Module paths and versions](https://go.dev/ref/mod#go-mod-file-ident)
