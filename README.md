@@ -40,3 +40,14 @@ Why is this necessary? Because the original source URL is not compatible with th
 
 `https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/` contains a whitespace character
 and will fail to resolve. Using the `insteadOf` rewrite makes it possible to consume the module.
+
+Beyond that it may be helpful to set the following Go environment variables:
+
+```shell
+go env -w GONOPROXY='*.nikolasgrottendieck.com'
+go env -w GONOSUMDB='*.nikolasgrottendieck.com'
+go env -w GOPRIVATE='*.nikolasgrottendieck.com'
+```
+
+These settings have to be done before Go interacts with the `go.mod` for dependency resolution so that the underlying
+Git process can handle the actual rewrite as expected. The same applies for Renovate as a result.
