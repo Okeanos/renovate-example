@@ -52,20 +52,21 @@ jobs:
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: 'Renovate Config'
         run: |
-          jq -n \
+          config=$(jq -n \
             --arg repo_url 'https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/_git/' \
             '{
             "regexManagers": [
               {
-                "fileMatch: ["^go.mod$"],
+                "fileMatch": ["^go.mod$"],
                 "matchStrings": ["(?<depName>go\\.nikolasgrottendieck\\.com\\/[\\/a-zA-Z0-9\\.-]*?) (?<currentValue>[a-zA-Z0-9\\.-]+)(.*)\\n"],
                 "datasource": "go",
                 "sourceUrl": "",
                 "depNameTemplate:": "{{{replace 'go.nikolasgrottendieck.com' '$repo_url' depName}}}"
               }
             ]
-          }' >> config.js
-          echo
+          }')
+
+          echo "module.exports = ${config};" > config.js
       - name: Renovate
         run: npx renovate
         env:
