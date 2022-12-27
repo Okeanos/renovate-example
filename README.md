@@ -17,7 +17,14 @@ The address `go.nikolasgrottendieck.com` doesn't actually exist, but is a placeh
 via Git `insteadOf` Syntax:
 
 ```shell
-git config --global url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/".insteadOf "https://go.nikolasgrottendieck.com/"
+git config --global url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/".insteadOf "https://go.nikolasgrottendieck.com/"
+```
+
+Or within the `.gitconfig`:
+
+```gitconfig
+[url "https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/"]
+    insteadOf = https://go.nikolasgrottendieck.com/
 ```
 
 As a consumer it can now be imported as:

@@ -30,7 +30,7 @@ jobs:
           go-version: 1.19.x
       - name: 'Setup Git Rewrite'
         run: |
-          git config --global url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/renovate%20me/".insteadOf "https://go.nikolasgrottendieck.com/"
+          git config --global url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/".insteadOf "https://go.nikolasgrottendieck.com/"
       - name: 'Install Tools'
         run: |
           npm update -g npm
