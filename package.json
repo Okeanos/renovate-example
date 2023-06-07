@@ -9,6 +9,6 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"renovate": "34.132.2"
+		"renovate": "35.113.3"
 	}
 }
