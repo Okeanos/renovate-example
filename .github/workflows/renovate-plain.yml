@@ -27,7 +27,7 @@ jobs:
           node-version-file: '.node-version'
       - uses: actions/setup-go@v3
         with:
-          go-version: 1.19.x
+          go-version: 1.20.x
       - name: 'Setup Git Rewrite'
         run: |
           git config --global url."https://okeanos-azure@dev.azure.com/okeanos-azure/renovate%20me/_git/".insteadOf "https://go.nikolasgrottendieck.com/"
